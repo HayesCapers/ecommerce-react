@@ -1,9 +1,34 @@
-import React, {Component} from 'react'
-import {Link, Route} from 'react-router-dom'
-import Slick from './Slick'
+import React, {Component} from 'react';
+import {Link, Route} from 'react-router-dom';
+import Slick from './Slick';
+import $ from 'jquery';
 
 class NavBar extends Component{
+	constructor(props) {
+		super(props);
+		this.state = {
+			productlines: []
+		}
+	}
+
+	componentDidMount() {
+		$.getJSON(`${window.hostAddress}/productlines/get`, (productlinesData) => {
+			// console.log(productlinesData);
+			this.setState({
+				productlines: productlinesData
+			})
+		})
+	}
+
   render(){
+
+  	const shopMenu = [];
+  	this.state.productlines.map((pl,index) => {
+  		shopMenu.push(
+  			<Link to={`/shop/${pl.link}`} key={index}>{pl.productLine}</Link>
+  		)
+  	})
+
     return(
     	<div>
 			<nav className="navbar navbar-default navbar-fixed-top">
@@ -13,12 +38,7 @@ class NavBar extends Component{
 			      	<li className="dropdown">
 			      		<Link to="/shop"><i className="arrow down" /> Shop</Link>
 			      		<li className="dropdown-links">
-			      			<Link to="/shop/cars">Cars</Link>
-			      			<Link to="/shop/motorcycles">Motorcycles</Link>
-			      			<Link to="/shop/planes">Planes</Link>
-			      			<Link to="/shop/ships">Ships</Link>
-			      			<Link to="/shop/trains">Trains</Link>
-			      			<Link to="/shop/trucks-buses">Trucks/Buses</Link>
+			      			{shopMenu}
 			      		</li>
 			      	</li>
 			      	<li><Link to="/about">About Us</Link></li>

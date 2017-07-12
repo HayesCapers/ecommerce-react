@@ -3,6 +3,10 @@
   list-style-type: none;
 }
 
+li{
+  list-style-type: none;
+}
+
 .slick-image{
   margin-top: 100px;
 }
@@ -26,6 +30,10 @@
 
 #header{
   color: orange;
+}
+
+.product-wrapper{
+  margin-top: 200px;
 }
 
 .list{
