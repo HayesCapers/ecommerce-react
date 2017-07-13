@@ -22,6 +22,17 @@ class ProductLine extends Component {
 		})
 	}
 
+	componentWillReceiveProps(nextProps){
+		var pl = nextProps.match.params.pl
+		console.log(pl)
+		$.getJSON(`${window.hostAddress}/productlines/${pl}`, (productData) => {
+			console.log(productData)
+			this.setState({
+				products: productData
+			})
+		})
+	}
+
 	render() {
 
 		const productList = [];
