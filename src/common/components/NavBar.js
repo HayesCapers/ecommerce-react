@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Route} from 'react-router-dom';
-import Slick from './Slick';
+import { Slick } from '../';
 import $ from 'jquery';
 
 class NavBar extends Component{
@@ -18,6 +18,7 @@ class NavBar extends Component{
 				productlines: productlinesData
 			})
 		})
+		return 'FUck You'
 	}
 
   render(){
@@ -27,6 +28,7 @@ class NavBar extends Component{
   		shopMenu.push(
   			<Link to={`/shop/${pl.link}`} key={index}>{pl.productLine}</Link>
   		)
+  		return 'Fuck off strict mode'
   	})
 
     return(
@@ -62,4 +64,8 @@ class NavBar extends Component{
   }
 }
 
-export default NavBar
+export { NavBar }
+
+
+
+

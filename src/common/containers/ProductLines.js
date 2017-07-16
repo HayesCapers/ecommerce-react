@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {Link, Route} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import '../App.css';
+import '../../App.css';
 
 class ProductLine extends Component {
 	constructor(props) {
@@ -20,6 +20,7 @@ class ProductLine extends Component {
 				products: productData
 			})
 		})
+		return 'sometihng';
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -40,6 +41,7 @@ class ProductLine extends Component {
 			productList.push(
 				<li key={index}><Link to={`/product/${product.productName}/${product.productCode}`}>{product.productName}</Link></li>
 			)
+			return 'foobar'
 		})
 		return(
 			<div className='product-wrapper'>
@@ -54,4 +56,5 @@ class ProductLine extends Component {
 	}
 }
 
-export default ProductLine
+export { ProductLine }
+

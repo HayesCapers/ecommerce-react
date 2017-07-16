@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 // We need some glue between react and redux
 // This component needs to know about state
 import { connect } from 'react-redux';
@@ -11,6 +11,7 @@ class ReduxStudents extends Component{
 		var studentsArray = [];
 		this.props.students.map((student,index)=>{
 			studentsArray.push(<li key={index} className='student'>{student}</li>)
+			return 'foobar';
 		})
 		return(
 			<div className="App">
@@ -41,4 +42,6 @@ function mapStateToProps(state){
 }
 
 // INSTEAD of exporting the component we export connect which gets the class
-export default connect(mapStateToProps)(ReduxStudents);
+var ReduxStuds = connect(mapStateToProps)(ReduxStudents)
+
+export { ReduxStuds }

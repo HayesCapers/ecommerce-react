@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import $ from 'jquery';
-import '../App.css';
+import '../../App.css';
 
 class Product extends Component {
 	constructor(props) {
@@ -24,7 +24,7 @@ class Product extends Component {
 
 	render(){
 		console.log(this.state.product[0])
-		if (this.state.product[0] == undefined){
+		if (this.state.product[0] === undefined){
 			return(
 				<div className='product-wrapper'>
 					<h1>{this.props.match.params.name}</h1>
@@ -44,4 +44,6 @@ class Product extends Component {
 	}
 }
 
-export default Product
+export { Product }
+
+
