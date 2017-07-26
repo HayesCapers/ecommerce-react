@@ -13,7 +13,7 @@ function queryDataBase(query,options = null){
 	return new Promise((resolve,reject)=>{
 		connection.query(query,options,(error,results)=>{
 			if (error) { 
-				resolve(error); 
+				reject(error); 
 			}
 			resolve(results);
 		});
